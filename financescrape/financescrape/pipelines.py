@@ -8,4 +8,8 @@
 
 class FinancescrapePipeline(object):
     def process_item(self, item, spider):
+        print('iooooooooooooooooooooooooooooooooooooooooooooooooooooo')
+        print(item)
+        item['content'] = 'okkkkkkkkkk'
+        print('ffffffffffffffffffffffffffffffffffffffffffff')
         return item

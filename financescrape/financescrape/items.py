@@ -9,6 +9,6 @@ import scrapy
 
 
 class FinancescrapeItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    origin= scrapy.Field()
+    title=  scrapy.Field()
+    content= scrapy.Field()
