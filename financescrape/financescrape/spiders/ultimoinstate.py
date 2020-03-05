@@ -4,6 +4,12 @@ from ..items import FinancescrapeItem
 class UltimoInstante(scrapy.Spider):
     name= "ultimoinstante"
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'financescrape.pipelines.FinancescrapePipeline': 300,
+        }
+    }
+
     start_urls = ['https://www.ultimoinstante.com.br/feed/']
 
     def parse(self, response):

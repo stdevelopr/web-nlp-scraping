@@ -4,6 +4,12 @@ from ..items import FinancescrapeItem
 class FinanceNews(scrapy.Spider):
     name= "financenews"
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'financescrape.pipelines.FinancescrapePipeline': 300,
+        }
+    }
+
     start_urls = ['https://financenews.com.br/feed/']
 
     def parse(self, response):

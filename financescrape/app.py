@@ -7,7 +7,7 @@ filename = 'finance.jsonl'
 file_format = 'jsonlines'
 
 # a list with the name of the spiders to be run
-spiders = ['financenews', 'ultimoinstante']
+spiders = ['financenews']
 
 
 settings = get_project_settings()
