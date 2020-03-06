@@ -1,21 +1,17 @@
 import scrapy
+import string
 
-
-class AcoesB3(scrapy.Spider):
-    name = "acoesb3"
+class B3(scrapy.Spider):
+    name = "b3"
 
     custom_settings = {
-        'DOWNLOAD_DELAY' : 0.5,
-        'ITEM_PIPELINES': {
-            'financescrape.pipelines.JsonWriterPipeline': 300,
-        }
+        'DOWNLOAD_DELAY' : 0.5
     }
 
     def start_requests(self):
-        urls = [
-            'https://br.advfn.com/bolsa-de-valores/bovespa/A',
-            # 'https://br.advfn.com/bolsa-de-valores/bovespa/B'
-        ]
+        seq= list(string.ascii_uppercase)
+        urls = [f"https://br.advfn.com/bolsa-de-valores/bovespa/{item}" for item in seq]
+
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -23,7 +19,6 @@ class AcoesB3(scrapy.Spider):
         for active in response.xpath('//tr[contains(@class,"even" ) or contains(@class,"odd" ) ]'):
             name = active.css('td a::text').extract_first()
             symbol = active.css('td::text').extract_first()
-            print('----------------------------')
             yield {
                 'name': name,
                 'symbol': symbol

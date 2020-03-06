@@ -19,4 +19,4 @@ class FinanceNews(scrapy.Spider):
             description = item.css('encoded')
             for scope in description:
                 content = scope.xpath('text()').get()
-                yield FinancescrapeItem(origin=self.name, title=title, content=content)
+                yield FinancescrapeItem(origin=self.name, title=title, content="OK")
