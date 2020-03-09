@@ -2,6 +2,8 @@ import spacy
 import random
 import os
 
+
+##################################################################### TODO
 TRAINING_DATA = [
         ("Uber blew through $1 million a week", {"entities": [(0, 4, "ORG")]}),
         ("Google rebrands its business apps", {"entities": [(0, 6, "ORG")]})]

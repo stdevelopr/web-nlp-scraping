@@ -17,7 +17,7 @@ import spacy
 app = Klein()
 nlp = spacy.load("pt_core_news_sm")
 
-@app.route('/api/mine_save/<int:num>')
+@app.route('/api/mine_save')
 def mine_save(request, num):
     """
     Mine and save the news from financenews and ultimoinstante.

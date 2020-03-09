@@ -53,6 +53,8 @@ def load_b3():
 def get_finance(number):
     data = []
     json_path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'files/finance.jsonl'))
+    if not os.path.exists(file_path):
+        raise "Finance file not found"
     with open(json_path) as f:
         for index, line in enumerate(f):
             if index == number:
